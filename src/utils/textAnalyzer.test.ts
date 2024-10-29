@@ -8,7 +8,6 @@ describe('analyzeText', () => {
       chars: 0,
       charsNoSpace: 0,
       words: 0,
-      lines: 0,
     })
   })
 
@@ -18,17 +17,33 @@ describe('analyzeText', () => {
       chars: 11,
       charsNoSpace: 10,
       words: 2,
-      lines: 1,
     })
   })
 
-  it('複数行のテキストを正しく解析できること', () => {
-    const result = analyzeText('Hello\nWorld\nTest')
+  it('複数のスペースを含むテキストを正しく解析できること', () => {
+    const result = analyzeText('Hello   World')
     expect(result).toEqual({
-      chars: 14,
-      charsNoSpace: 12,
-      words: 3,
-      lines: 3,
+      chars: 13,
+      charsNoSpace: 10,
+      words: 2,
+    })
+  })
+
+  it('前後の空白を含むテキストを正しく解析できること', () => {
+    const result = analyzeText('  Hello World  ')
+    expect(result).toEqual({
+      chars: 15,
+      charsNoSpace: 10,
+      words: 2,
+    })
+  })
+
+  it('タブ文字を含むテキストを正しく解析できること', () => {
+    const result = analyzeText('Hello\tWorld')
+    expect(result).toEqual({
+      chars: 11,
+      charsNoSpace: 10,
+      words: 2,
     })
   })
 })

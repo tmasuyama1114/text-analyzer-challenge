@@ -6,16 +6,19 @@ import { TextStats } from '../types'
  * @returns TextStats オブジェクト
  */
 export const analyzeText = (text: string): TextStats => {
+  // 基本的な文字数
   const chars = text.length
+
+  // 空白を除いた文字数
   const charsNoSpace = text.replace(/\s/g, '').length
+
+  // 単語数の計算（連続する空白は1つとして扱う）
   const words = text.trim() === '' ? 0 : text.trim().split(/\s+/).length
-  const lines = text === '' ? 0 : text.split(/\r\n|\r|\n/).length
 
   return {
     chars,
     charsNoSpace,
     words,
-    lines,
   }
 }
 

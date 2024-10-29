@@ -7,7 +7,6 @@ describe('StatsGrid', () => {
     chars: 10,
     charsNoSpace: 8,
     words: 2,
-    lines: 1,
   }
 
   it('すべての統計情報が表示されること', () => {
@@ -16,6 +15,5 @@ describe('StatsGrid', () => {
     expect(screen.getByText('10')).toBeInTheDocument()
     expect(screen.getByText('8')).toBeInTheDocument()
     expect(screen.getByText('2')).toBeInTheDocument()
-    expect(screen.getByText('1')).toBeInTheDocument()
   })
 })

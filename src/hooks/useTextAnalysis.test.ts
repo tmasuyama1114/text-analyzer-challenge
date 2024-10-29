@@ -11,7 +11,6 @@ describe('useTextAnalysis', () => {
       chars: 0,
       charsNoSpace: 0,
       words: 0,
-      lines: 0,
     })
     expect(result.current.isWarning).toBe(false)
   })
